@@ -39,7 +39,7 @@ public class Main {
           int inputScore = scanner.nextInt();
           scanner.nextLine();
 
-          studentsList.add((new Students(inputName, inputScore)));
+          studentsList.add(new Students(inputName, inputScore));
           System.out.println(inputName + "が追加されました");
         }
 
@@ -51,9 +51,9 @@ public class Main {
           boolean removed = studentsList.removeIf
               (student -> student.getName().equals(deleteName));
 
-          if (removed){
+          if (removed) {
             System.out.println(deleteName + "が削除されました");
-          }else {
+          } else {
             System.out.println(deleteName + "という学生は見つかりませんでした");
           }
         }
@@ -63,9 +63,9 @@ public class Main {
           scanner.nextLine(); //改行文字を消費する
           String changeScoreName = scanner.nextLine();
 
-           //一致する学生を探す
-          for (Students student : studentsList){
-            if (student.getName().equals(changeScoreName)){
+          //一致する学生を探す
+          for (Students student : studentsList) {
+            if (student.getName().equals(changeScoreName)) {
               System.out.println("新しい点数を入力してください：");
 
               while (!scanner.hasNextInt()) {
@@ -88,14 +88,14 @@ public class Main {
         }
 
         case '4' -> {
-          if (studentsList.isEmpty()){
+          if (studentsList.isEmpty()) {
             System.out.println("学生リストが空です。");
-          }else {
+          } else {
             int totalScore = 0;
-            for (Students student : studentsList){
+            for (Students student : studentsList) {
               totalScore += student.getScore();
             }
-            double averageScore = (double)  totalScore / studentsList.size();
+            double averageScore = (double) totalScore / studentsList.size();
             System.out.println("平均点： " + averageScore + "点");
           }
         }
@@ -110,10 +110,9 @@ public class Main {
 
       }
 
-      if (number == '6'){
+      if (number == '6') {
         break;
       }
     }
-
-    }
+  }
 }
